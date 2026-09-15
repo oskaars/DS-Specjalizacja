@@ -20,17 +20,26 @@
             {
                 id: 1,
                 quantity: 1,
-                name: "1masło"
+                name: "1masło",
+                color1:"red",
+                color2:"grey",
+                color3:"blue"
             },
             {
                 id: 2,
                 quantity: 2,
-                name: "2masło"
+                name: "2masło",
+                                color1:"red",
+                color2:"grey",
+                color3:"blue"
             },
             {
                 id: 3,
                 quantity: 3,
-                name: "3masło"
+                name: "3masło",
+                                color1:"yellow",
+                color2:"brown",
+                color3:"blue"
             },
                         {
                 id: 3,
@@ -42,24 +51,17 @@
         const ListItem = (props) => {
             console.log(props)
             return (
-                <div className="klasa">
-                    {props.quantity} x {props.name}
+                <div className="box">
+                    <div style = {}>id: {props.id}</div>
+                    <div>{props.quantity}</div>
+                    <div>{props.name}</div>
                 </div>
             );
         }
 
-        const List1 = () => {
-            return (
-                <>
-                    <ListItem quantity={data[0].quantity} name={data[0].name}></ListItem>
-                    <ListItem quantity={data[1].quantity} name={data[1].name}></ListItem>
-                    <ListItem quantity={data[2].quantity} name={data[2].name}></ListItem>
-                </>
-            )
-        }
-        const List2 = () => {
+        const List = () => {
             const objects = data.map((item, index) => (
-                <ListItem key={index} quantity={item.quantity} name={item.name} />
+                <ListItem key={index} quantity={item.quantity} name={item.name} id={item.id} color1={item.color1} color2={item.color2} color3 = {item.color3} />
             ));
             return (
                 <>
@@ -70,8 +72,7 @@
 
         ReactDOM.render(
             <>
-                <List1 />
-                <List2 />
+                <List/>
             </>
 
 

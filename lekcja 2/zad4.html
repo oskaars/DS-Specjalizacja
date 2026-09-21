@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react 2.4</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17.0.2/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="react-app"></div>
+
+    <script type="text/babel">
+      const FoodList = () => {
+        const [item, setItem] = React.useState("kurtka");
+
+        const onButtonClick = () => {
+          const items = ["tshirt", "czapka", "buty", "kurtka"];
+          const index = Math.floor(Math.random() * items.length);
+          setItem(items[index]);
+        };
+
+        return (
+          <div>
+            <button onClick={onButtonClick}>wylosuj dla wszystkich</button>
+            <Food food={item} />
+            <Food food={item} />
+            <Food food={item} />
+          </div>
+        );
+      };
+
+      const Food = (props) => {
+        const [lubie, setLubie] = React.useState("???");
+        let msg;
+
+        const lubieNieLubie = () => {
+          if (lubie == "???" || lubie == "nielubie") {
+            setLubie("lubie");
+          } else if (lubie == "lubie") {
+            setLubie("nielubie");
+          }
+        };
+        return (
+          <>
+            <button onClick={lubieNieLubie}>lubie/nielubie</button>
+            <div>{lubie}</div>
+            <div>{props.food}</div>
+          </>
+        );
+      };
+
+      ReactDOM.render(
+        <>
+          <FoodList />
+        </>,
+
+        document.getElementById("react-app"),
+      );
+    </script>
+  </body>
+</html>

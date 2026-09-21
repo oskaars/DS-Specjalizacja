@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react 2.1</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17.0.2/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="react-app"></div>
+
+    <script type="text/babel">
+      const Square = () => {
+        const [data] = React.useState({ a: 1, b: 2, c: 3 });
+
+        return (
+          <div>
+            <h1>a = {data.a} </h1>
+            <h1>a = {data.b} </h1>
+            <h1>a = {data.c} </h1>
+          </div>
+        );
+      };
+
+      ReactDOM.render(
+        <>
+          <Square />
+          <Square />
+          <Square />
+        </>,
+
+        document.getElementById("react-app"),
+      );
+    </script>
+  </body>
+</html>

@@ -21,12 +21,15 @@
     <script type="text/babel">
       const Square = () => {
         const [data] = React.useState({ a: 1, b: 2, c: 3 });
+        const [data2, setData2] = React.useState([1,2]);
+
 
         return (
           <div>
             <h1>a = {data.a} </h1>
             <h1>a = {data.b} </h1>
             <h1>a = {data.c} </h1>
+            <button onClick={()=>{setData2([1,3])}}></button>
           </div>
         );
       };
